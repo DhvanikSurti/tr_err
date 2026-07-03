@@ -41,3 +41,37 @@
 
 
 #loop control 
+a=0
+# while [ $a -lt 10 ]
+# do 
+#     echo $a
+   
+#     if [ $a -eq 5 ]
+#     then 
+#         break
+#     fi
+#     a=$(expr $a + 1)
+# done
+
+# conditional statements 
+# a=0
+# num="1 2 3 4 5 6 7 8 9"
+# for i in $num
+# do
+#     Q=$(expr $i % 2 )
+#     if [ $Q -eq 0 ]
+#     then 
+#         echo "$i is even"
+#         continue
+#     fi
+#         echo "$i is odd"
+# done
+
+#functions 
+# yo() {
+#     echo "this is function & this is value $1 $2"
+#     return 12
+# }
+# yo hello wo
+# ret=$?
+# echo "return value is $ret"
