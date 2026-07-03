@@ -1,4 +1,5 @@
-#ayo, today's covered topics are shell operators , 
+#ayo, today's covered topics are shell operators , nested loop,
+# loop control, conditional statements and functions
 
 #!/bin/bash
 #
