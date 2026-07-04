@@ -1,4 +1,6 @@
-# #!/bin/bash
+#ayo, today's covered topics are ip codes, one sends ping packages & gives Up or Down status, 
+#second does the same but also sends mail to admin if node is down, and also leanred about mail command, and w3 bash course :) 
+#!/bin/bash
 # echo "Script is starting"
 # # Function to check whether a given IP address is alive
 # is_alive_ping()
