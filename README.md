@@ -48,4 +48,34 @@ shell loops (while, for, the until loop, nested , loop control)
 
 Date 04 jul 2026 / Saturday
 W3 school bash practice / Sed command
+check what is network monitoring systems ?
+selection sort 
+
+Date 05 jul 2026
+Quick sort in c
+
+Date 06 jul 2026
+Struct basics , pointer struct members, pointer stuct variable
+
+Date 07 jul 2026
+Nested struct, 
+
+Date 08 jul 2026
+array of struct 
+
+Date 09 jul 2026
+memory management in c fom w3 school(static & dynamic & stack mem) 
+
+Date 10 jul 2026
+realloc, malloc
+
+Date 11 jul 2026
+time library , rand(), BareMetal, Arduino, Freertos(execution of them) 
+things to do this weekend : c topics learning from word, IPC, Revision of week, plan to next week ,
+
+Date 12 jul 2026
+word report,(pre-processing, compiling, assembly, linking{static, dynamic})
+Make file, (weather device exists, or older than source files)
+	Rule(target > prerequisite != recipe)
+
 
