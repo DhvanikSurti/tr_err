@@ -78,4 +78,6 @@ word report,(pre-processing, compiling, assembly, linking{static, dynamic})
 Make file, (weather device exists, or older than source files)
 	Rule(target > prerequisite != recipe)
 
-
+Date 13 jul 2026
+Done the sensor integration for the nxp imx95 board 
+Learned about Doxygen Documentation 
