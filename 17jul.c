@@ -19,5 +19,24 @@
 //     }
 // }
 
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <sys/types.h>  
+// int main()
+// {
+//     pid_t pid = fork();
+//     if(pid < 0) {
+//         perror("Fork failed");
+//         exit(1);
+//     } else if (pid == 0) {
+//         // Child process
+//         printf("Child process\n");
+//     } else {
+//         // Parent process
+//         printf("Parent process\n");
 
-
+//     }
+//     printf("befor execl\n");
+//     execl("/bin/sh","bash","-c","ls -lh","pwd",NULL);
+//     return 0;
+// }
