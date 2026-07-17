@@ -81,3 +81,20 @@ Make file, (weather device exists, or older than source files)
 Date 13 jul 2026
 Done the sensor integration for the nxp imx95 board 
 Learned about Doxygen Documentation 
+
+Date 14 jul 2026
+linked list are not like array which are in adjacent manner in memory , they are in separated in memory and connected through address , and the size can be growable ,
+Queue has two options :Enqueue(add from back), Dequeue(remove from front)
+Queue is made by signly LL , front node point to first node(dequeue) , rear point to last(enqueue) 
+createQueue = check i/p, allocate mem, set front & rear=NULL, size =0, return pointer, 
+
+Date 15 jul 2026
+Done a code which implement queue menu , insertion ,deletion 
+Linux process, ps command, init script 
+
+Date 16 jul 2026 
+Nothing
+
+Date 17 jul 2026 
+Doing Espressif setup 
+
