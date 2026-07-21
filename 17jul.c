@@ -40,3 +40,16 @@
 //     execl("/bin/sh","bash","-c","ls -lh","pwd",NULL);
 //     return 0;
 // }
+
+
+
+
+#include <stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+int main()
+{
+    
+    system("pwd");
+    return 0;
+}

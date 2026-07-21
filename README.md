@@ -96,5 +96,7 @@ Date 16 jul 2026
 Nothing
 
 Date 17 jul 2026 
-Doing Espressif setup 
+Doing Espressif setup, 
+Goal : complete word document ---
+
 
