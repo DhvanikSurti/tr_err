@@ -104,3 +104,12 @@ Date 20 jul 2026
 Date 21 jul 2026 IPC code in c IPC types :Shared mem(POSIX, System V, Mem-mapped files), Message Passing(Pipes, Mes Queue, Sockets, Signals, Remote Procedure call(RPC)) Shared mem"reading/writing , Mem. segment by kernel(faster) Message Passign:sending/receiving, system calls & data coping (slower), OS message queue problems in shared mem:Deadlock, Producer-consumer, Readers-Writers, Pipe code in c
 
 
+Date 20 jul 2026
+
+Date 21 jul 2026
+IPC code in c 
+IPC types :Shared mem(POSIX, System V, Mem-mapped files), Message Passing(Pipes, Mes Queue, Sockets, Signals, Remote Procedure call(RPC))
+Shared mem"reading/writing , Mem. segment by kernel(faster)
+Message Passign:sending/receiving, system calls & data coping (slower), OS message queue 
+problems in shared mem:Deadlock, Producer-consumer, Readers-Writers,
+Pipe code in c
