@@ -10,7 +10,7 @@ int main() {
         .mq_maxmsg = 10,
         .mq_msgsize = 100,
         .mq_curmsgs = 0
-    };
+    };git pull --rebase origin main
 
     mqd_t mq = mq_open("/myqueue",
                        O_CREAT | O_RDWR,
