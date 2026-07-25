@@ -105,13 +105,55 @@ Date 21 jul 2026 IPC code in c IPC types :Shared mem(POSIX, System V, Mem-mapped
 
 Date 24 jul 2026:
 
+Date 25 jul 2026:
+socket code , server client code 
+Shared mem ,a shared mem region reside in the address space of the process creating it segment 
+other process must have to attach it in its address space 
+Make Buffer and reside it in the shared mem region 
+Bufferes can be two type [1.Unbonded buffer(no limit on size) 2.Bounded buffer(limit on size)]
+shm_open(),mmap()
 
-Date 20 jul 2026
+Date 26 jul 2026
+Free rtos learning 
+                ESP32 Chip
+        +------------------------+
+        | CPU (Xtensa/RISC-V)    |
+        | RAM                    |
+        | ROM (Boot ROM)         |
+        | Peripherals            |
+        +------------------------+
+                  |
+                  |
+            SPI Flash Memory
+        +------------------------+
+        | Bootloader             |
+        | Partition Table        |
+        | Application            |
+        | NVS                    |
+        | OTA Slots              |
+        | SPIFFS/LittleFS        |
+        +------------------------+
 
-Date 21 jul 2026
-IPC code in c 
-IPC types :Shared mem(POSIX, System V, Mem-mapped files), Message Passing(Pipes, Mes Queue, Sockets, Signals, Remote Procedure call(RPC))
-Shared mem"reading/writing , Mem. segment by kernel(faster)
-Message Passign:sending/receiving, system calls & data coping (slower), OS message queue 
-problems in shared mem:Deadlock, Producer-consumer, Readers-Writers,
-Pipe code in c
+when we write main() it act as app_main()(application)
+then 
+idf.py build --------------------------------------------------------------------------------------------
+	complier(RISC-v ,xtensa) converts .c to .o --> machine codes
+	compile every library (GPIO, UART, SPI, I2C, wifi, ble, freertos, tcp/ip, nvs) --> .o files
+	Linker merge all .o files into --> application.elf , and assign mem/address,resolve function calls, 
+	ELF -> BIN , elf file aslo contain debug info which not required for esp, so it make pure binary image .bin
+	.bin files at the end , (bootloader.bin, partition-table.bin, ...)
+	------------------------------------------------------------------------------------------------------------
+
+idf.py flash -------------------------------------------------------------------------------------------------
+	USB - UART chip - ESP32 UART
+	ROM bootloader , goes to download mode & waits for command over UART
+	Flash mem contains .bin file and according address 
+	reset, CPU start from the ROM bootloader 
+		ROM bootloader --> initialize CPU, SPI FLASH , check boot mode, & basic hardware & shares to second-stage bootloader 
+		Second-stage bootloader --> inside RAM storages(eMMc, SD card, SSD), then loads bootloader.bin in the mem 
+			bootloader.bin --> configure major things like (clock, flash, mem, checks secure boot, read partition-table.bin)
+			partition-table.bin --> contains application , load app
+			application --> bootloader copies require part of apk into RAM and transfer control to apk's entry point 
+		ESP-IDF startup (SDK), (ready made code), contais drivers file & etc
+			ESP_IDF -->startup code, initialize heap, interrupt, drivers, C, FREERTOS and task creation 
+			Free rtos --> start kernel , creates task, and calls app_main() and the apk starts via this task, also manages scheduler 
