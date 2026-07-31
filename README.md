@@ -148,7 +148,7 @@ idf.py flash -------------------------------------------------------------------
 	USB - UART chip - ESP32 UART
 	ROM bootloader , goes to download mode & waits for command over UART
 	Flash mem contains .bin file and according address 
-	reset, CPU start from the ROM bootloader 
+	reset, CPU start from the ROM bootloader 	
 		ROM bootloader --> initialize CPU, SPI FLASH , check boot mode, & basic hardware & shares to second-stage bootloader 
 		Second-stage bootloader --> inside RAM storages(eMMc, SD card, SSD), then loads bootloader.bin in the mem 
 			bootloader.bin --> configure major things like (clock, flash, mem, checks secure boot, read partition-table.bin)
@@ -157,3 +157,8 @@ idf.py flash -------------------------------------------------------------------
 		ESP-IDF startup (SDK), (ready made code), contais drivers file & etc
 			ESP_IDF -->startup code, initialize heap, interrupt, drivers, C, FREERTOS and task creation 
 			Free rtos --> start kernel , creates task, and calls app_main() and the apk starts via this task, also manages scheduler 
+
+
+Date 31 jul 2026:
+Started with verilog from YT
+Basic , Abstraction level , Number specification 
