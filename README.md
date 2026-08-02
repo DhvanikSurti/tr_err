@@ -162,3 +162,35 @@ idf.py flash -------------------------------------------------------------------
 Date 31 jul 2026:
 Started with verilog from YT
 Basic , Abstraction level , Number specification 
+
+Date 2 jul 2026:
+data types : Net, reg, int, real, time, string
+Verilog language is parallel or concurrent language , statements are running parallels 
+Net : Physical connect modules , not store any values only driving data, 
+    Net types : wire, wand, wor, 
+	wire w1 = source driver ( a source module or reg which continuously or timely sends data ) 
+	wire's by-default width(capacity) is 1 bit & default value is z (high impedance)  
+	if negative value is assigned to the wire , then compiler make 2's complement on the source driver and then assign 
+    if we don't mention any size to the var. , by default size is 32-bit, Base is decimal, value = 000..1. 
+	if assign w = -1 , then value of w is 1 , because -1's 2's complement is 1 , default size is 32-bit, value is 111...111, LSB is store     to the w , HENECE wire is unsigned data type 
+	if multiple drivers are driven on the same wire, then wire will get unknown value (x), to avoid this issue we use wor
+	wor : multiple drivers then or operation will performed on source values 
+	wand : AND operation 
+
+reg : used for storing data 
+    reg's defualt width is 1 bit , default value is x 
+	if negative value is stored, then complier will do 2's complement and then stored 
+	reg is also unsigned data type 
+
+int : default size 32-bit, default value is x, signed data type 
+float : default size 64-bit, value is x, signed data type, it is not synthesizable
+vectors : collection of bits in a single location , 
+    reg [2:0] = big endian , MSB at higher index ,
+    reg [0:2] = little endian , MSB at lower index
+	vector slicing = assigning perticular range to other reg or wire 
+	vectors are used in the reg and wire , can't with int, real, others because reg and wire are 1 bit and can change size of it 
+
+
+	
+
+
