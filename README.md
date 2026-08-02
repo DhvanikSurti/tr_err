@@ -163,7 +163,7 @@ Date 31 jul 2026:
 Started with verilog from YT
 Basic , Abstraction level , Number specification 
 
-Date 2 jul 2026:
+Date 2 aug 2026:
 data types : Net, reg, int, real, time, string
 Verilog language is parallel or concurrent language , statements are running parallels 
 Net : Physical connect modules , not store any values only driving data, 
@@ -172,7 +172,7 @@ Net : Physical connect modules , not store any values only driving data,
 	wire's by-default width(capacity) is 1 bit & default value is z (high impedance)  
 	if negative value is assigned to the wire , then compiler make 2's complement on the source driver and then assign 
     if we don't mention any size to the var. , by default size is 32-bit, Base is decimal, value = 000..1. 
-	if assign w = -1 , then value of w is 1 , because -1's 2's complement is 1 , default size is 32-bit, value is 111...111, LSB is store     to the w , HENECE wire is unsigned data type 
+	if assign w = -1 , then value of w is 1 , because -1's 2's complement is 1 , default size is 32-bit, value is 111...111, LSB is store     to the w , HENECE wire is ut unsigned data type 
 	if multiple drivers are driven on the same wire, then wire will get unknown value (x), to avoid this issue we use wor
 	wor : multiple drivers then or operation will performed on source values 
 	wand : AND operation 
@@ -190,7 +190,47 @@ vectors : collection of bits in a single location ,
 	vector slicing = assigning perticular range to other reg or wire 
 	vectors are used in the reg and wire , can't with int, real, others because reg and wire are 1 bit and can change size of it 
 
-
+Date 3 aug 2026
+port connection rules 
+if you declared any input/output  port without its type , then it is by-default Net data type 
+WHat data type is allowed at each port connection :
+	| Port Direction | Inside Module     | Outside Module    |
+	| -------------- | ----------------- | ----------------- |
+	| input          | wire/net          | wire or reg       |
+	| output         | wire or reg       | wire/net          |
+	| inout          | wire/net only     | wire/net only     |
 	
+    Inputs receive values from outside, so they don't store data internally and are treated as nets.
+	Outputs may either continuously reflect a signal (wire) or hold a value assigned in a procedural block (reg).
+	Inouts represent shared buses with potentially multiple drivers, so they must be nets.
 
+How connection is made , 1.connection by name, 2.connection by order 
+1.connection by name : Instantiation by name 
+	Make a design on rough , name wires or regs 
+	on the design , make internal circuit using module , write logic of it 
+	on the top level design use module's instants to connect directly to the ports using wire names or ports, uses .var_name()
+	ex. =
+	
+2.connection by order  = Ports are connected in the same order as they are declared in the module.
+example of both 
+module adder (
+    input  a,
+    input  b,
+    output sum
+	);
+	assign sum = a + b;
+	endmodule 
+	//connection by orderd  
+	module top;
+    wire s;
+    reg x, y;
+	adder u1 (x, y, s);   // a=x, b=y, sum=s
+	endmodule 
+	// connection by name 
+	module top ;
+			wire s; reg x,y;
+			addr u1( .a(x), .b(y), .sum(s));
+		  endmodule	
+If we don't connect I/p port in the instantiation then got error , but this will not happenes in the o/p ports, why ? 
+but in the instants , must declare arguments for connection 
 
