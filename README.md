@@ -234,3 +234,14 @@ module adder (
 If we don't connect I/p port in the instantiation then got error , but this will not happenes in the o/p ports, why ? 
 but in the instants , must declare arguments for connection 
 
+Gate Level modeling 
+For the Gate level modeling , there are some primitives are their which are used for coding the gates 
+Primitives in Verilog are predefined, basic building blocks used to model digital logic circuits. 
+syntax of the gates are : not n1(output, input) arguments 
+Buffer gates :built-in gate-level primitives that pass an input signal directly to the output without changing its logic value,  bufif1 , bufif0 
+	types : simple buffer(not controllable , just pass the values) , controlled buffers(bufif1, bufif0)
+	bufif1 instance_name (output, input, control);
+	bufif0 instance_name (output, input, control);
+	controlled buffers contain tri state logic : a type of digital circuit output that can produce a high voltage (logic 1), a low voltage (logic 0), or a high-impedance (Hi-Z) state.
+Fan-in : The total number of input signals that a single logic gate can accept. High fan-in increases internal resistance and delay.
+Fan-out :  The maximum number of standard gate inputs that a single gate's output can safely drive without a drop in voltage or current. Exceeding this limit causes logic errors, Fan-out counts the number of input terminals that an output is connected to
