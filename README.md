@@ -245,3 +245,9 @@ Buffer gates :built-in gate-level primitives that pass an input signal directly 
 	controlled buffers contain tri state logic : a type of digital circuit output that can produce a high voltage (logic 1), a low voltage (logic 0), or a high-impedance (Hi-Z) state.
 Fan-in : The total number of input signals that a single logic gate can accept. High fan-in increases internal resistance and delay.
 Fan-out :  The maximum number of standard gate inputs that a single gate's output can safely drive without a drop in voltage or current. Exceeding this limit causes logic errors, Fan-out counts the number of input terminals that an output is connected to
+
+Date 4 Aug 2026
+Ripple carry adder, 4 bit binary adder, BCD adder
+BCD adder , if we add two digits which are greater than 9 then a correction logic will add 6 to round of it single digit  
+Ripple carry is combination of four 1 bit binary adder connected in the chain 
+4 bit binary adder , a digital circuit that adds two 4-bit numbers (A and B) using four cascaded full adders.
