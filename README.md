@@ -251,3 +251,6 @@ Ripple carry adder, 4 bit binary adder, BCD adder
 BCD adder , if we add two digits which are greater than 9 then a correction logic will add 6 to round of it single digit  
 Ripple carry is combination of four 1 bit binary adder connected in the chain 
 4 bit binary adder , a digital circuit that adds two 4-bit numbers (A and B) using four cascaded full adders.
+
+Date 06 Aug 2026
+Done code of half_adder, and full_adder which instantiate the half_adder code , used gate level modeling 
