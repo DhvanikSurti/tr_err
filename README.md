@@ -254,3 +254,35 @@ Ripple carry is combination of four 1 bit binary adder connected in the chain
 
 Date 06 Aug 2026
 Done code of half_adder, and full_adder which instantiate the half_adder code , used gate level modeling 
+
+Date 07 aug 2026
+input output port declaration , they we bydefault wire type 
+but for the output : if assign is used with output then it can be wire only , but if output port is used with always then it must be reg because they store values assigned by procedural block 
+2 bit comparator , 
+A=B = A1’A0’B1’B0’ + A1’A0B1’B0 + A1A0B1B0 + A1A0’B1B0’
+    : A1’B1’ (A0’B0’ + A0B0) + A1B1 (A0B0 + A0’B0’)
+    : (A0B0 + A0’B0’) (A1B1 + A1’B1’)
+    : (A0 Ex-Nor B0) (A1 Ex-Nor B1)
+A>B = A1’B1 + A0’B1B0 + A1’A0’B0
+A<B = A1B1’ + A0B1’B0’ + A1A0B0’
+
+testbench write :
+module designname_tb ; 
+	//declaration wires , 
+	//Instantiate design 
+	//apply input stimulus 
+	//observe outputs 
+	//finish simulation 
+endmodule
+testbench : write module name as design_tb, use reg for inputs signal because it chnages the values "Design input  → Testbench reg",Design output → Testbench wire, 
+instantiate connects circuit to the tester 
+uut stands for unit under test , it is just name , it can be something else 
+intial begin , this runs once when simulation starts
+create waveform file : $dumpfile("filename"), $dumpvar(level,scope)
+	dumpvar system task in verilog used to specify which variable should be recorded in a value change dump(VCD) 
+	level 0=dump all var in specified scope, 1=dump only variables directly in the specified scope, >1=dumps var up to that specific hierarcy level below scope 
+apply input test cases , $finish end simulation 
+
+
+
+			
