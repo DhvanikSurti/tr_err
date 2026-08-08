@@ -283,6 +283,17 @@ create waveform file : $dumpfile("filename"), $dumpvar(level,scope)
 	level 0=dump all var in specified scope, 1=dump only variables directly in the specified scope, >1=dumps var up to that specific hierarcy level below scope 
 apply input test cases , $finish end simulation 
 
-
+Date 08 aug 2026 
+Made a testbench for the 2 bit comparator 
+When design file is having [1:0] then in the testbench we also have to declared that in tb
+compiling and executing verilog using icarus 
+	iverilog -> compile
+	vvp 	 -> simulation
+	gtkwave  -> view waveforms 
+	iverilog reads verilog file , checks verilog syntax, understand/elaborates the modules and their connections
+	creates .out file , insort compile verilog code into a simulation program 
+	vvp takes compiled file .out and executes it as a verilog simulation 
+	vvp takes tb files test cases and starts simulation 
+	vvp file also generates vcd file 
 
 			
