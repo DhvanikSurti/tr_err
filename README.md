@@ -296,4 +296,57 @@ compiling and executing verilog using icarus
 	vvp takes tb files test cases and starts simulation 
 	vvp file also generates vcd file 
 
-			
+Date 09 aug 2026
+DOne Mux desing with tb , 
+Behaviour level modeling , Concert it as a black box which don't know the internal circuit , just know the i/p and o/p of it 
+in it we have structure proceducers or sequencial blocks 
+	always , initial blocks 
+always = execute forever until simulation ends,
+		Synthesizable block , at t=0 triggered ,and with simulation ends
+		sindle line then no need to begin , multiple line need begin end
+		if two always block return in the same module then both will execute at a time , hence verilog is concurant laguage parallel language at t=0 
+		always blocks are sequencially , means statements written in the block will execute line by line
+		sensitivity list == always @(sensitivity), which used for execute always block when the sensitivity is hit , otherwise block is not executes , always @(i0,i1,i2,i3) 
+		always @(*) , * means implecation operator consider as all the input in the block 
+		Rules for always block = 
+			LHS variable can not be wire type 
+			Nesting of always blocks can happnes 
+
+Operators = Arithmetic , Logical , Relational , equality opearator , bitwise , reduction , Shift , conditional 
+	if variable is having don't care value(x) output is unknow 
+equality opearator= logical(== , !=) , case(=== , !==)
+Reductionn(&,~&,|,~|,^,~^) = internal bits operation , every output will have single value 
+Shift = logical = RS, >> , LS , <<
+		arithmetic = >>>, <<<
+conditional : condition ? true_value : false_value. 
+
+Delay type : inter assignment (delay before assignment)
+			intra assignment (delay after assignment )
+Blocking and non blocking :
+Blocking sing is '=', in blocking operator block the execution until it executes 
+			a=0; b=0;, b will not executes until a 
+Non blocking sing is '<=', in this statements are executing parallel 
+			a <= 0; b<=0; , both will executes parallel, does not have to wait 
+
+System task : built in function is having $ sign then it is system task, primary for display, debugging , tb
+				not sysnthesizable 	
+				$display, $write, $monitor, $strobe, $time, $stop, $finish, $random, $dumpvars, $dumpfile
+
+Event Scheduler : Simulator data structure , manages dynamic scheduling , execution , ensure deterministic and pridictable simulation 
+				It operates on a discrete event driven modle where simulation time is divided into slots and each time slot is subdivided into ordered event region 
+				Event Scheduler has a structure like 
+				Active, InActive, Non-blocking Assignment, Postpond at t=0 and this same structure will happnes with t=2 or another tick 
+				After completing all the state of event scheduler it goes to another time unit 
+		Active: Blocking assingment will executes, Evalution of RHS of Non-blocking, continuouse assigment , $statments execution, Evaluation of I/p's and updates of o/p's gate primitives happnes 
+		ACTIVE REGION , NO UPDATED RHS to LHS
+		├── Execute initial/always procedural statements
+		├── Evaluate RHS of blocking assignments but not update the variable 
+		├── Update blocking-assignment LHS
+		├── Evaluate continuous assignments
+		├── Evaluate gate primitives
+		└── Trigger/schedule more events
+
+		Inactive region contains events delayed by #0; they execute after the Active events of the current scheduling cycle but without advancing simulation time.
+
+		NBA REGION , Non-blocking states got updated values , Evaluation of NBA is happned in t=0 , updated values will assign in t=1 in the variable 
+		Postpond region , $monitor will execute and $display executes in active region , $strobe will execute in postpond 
