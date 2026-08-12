@@ -350,3 +350,32 @@ Event Scheduler : Simulator data structure , manages dynamic scheduling , execut
 
 		NBA REGION , Non-blocking states got updated values , Evaluation of NBA is happned in t=0 , updated values will assign in t=1 in the variable 
 		Postpond region , $monitor will execute and $display executes in active region , $strobe will execute in postpond 
+
+
+Date 12 aug 2026
+Latches: level sensitive devices, works on postivve(enable) signals 
+For Combinational design we use blocking assignments, and for sequential design we use non blocking assignment 
+
+| Feature               | Combinational Design                             | Sequential Design                            |
+| --------------------- | ------------------------------------------------ | -------------------------------------------- |
+| **Output depends on** | Present inputs only                              | Present inputs **+ previous state**          |
+| **Memory**            | No memory                                        |  Has memory                                  |
+| **Clock**             | Usually not required                             | Usually uses a clock                         |
+| **Feedback**          | Generally absent                                 | Often present                                |
+| **Examples**          | Adder, subtractor, multiplexer, decoder, encoder | Flip-flop, counter, register, shift register |
+| **State**             | No state                                         | Has a state                                  |
+
+Reset Circuit a structural control mechanism used to force all sequential elements (such as flip-flops and registers) into a known, predictable initial state (usually all zeros or ones) upon power-up, system recovery, or external command . Without it, storage components would initialize to random or unstable logic values. Types: Synchronous Reset, Asynchronous Reset
+Synchronous Reset: The reset signal is sampled only on the active edge of the clock.
+Asynchronous Reset: The reset signal forces the circuit into a reset state instantly, completely independent of the clock.
+Advantages of reset circuits 
+Initializing registers
+Starting counters from zero
+Putting FSMs into their initial state
+Recovering from abnormal conditions
+Bringing a chip into a known state after power-up
+Latch = level-sensitive storage
+Flip-flop = edge-triggered storage
+
+S-R Latch , Set = Q , Reset = Q' using NOR gate 
+S-R Latch , set 1 = Q =0, using nand gate 
