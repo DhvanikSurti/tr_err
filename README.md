@@ -379,3 +379,14 @@ Flip-flop = edge-triggered storage
 
 S-R Latch , Set = Q , Reset = Q' using NOR gate 
 S-R Latch , set 1 = Q =0, using nand gate 
+
+why we use behavioural flow sequential design ?
+
+T= 0 , q=0 
+T=1 , q = ~q 
+
+jk=00, q=hold
+jk=01, q=reset
+jk=10, q=set
+jk=11, q=toggle
+
