@@ -420,7 +420,9 @@ SIPO = for SIPO, enb is used for shift / load operation because type is differen
 		loading is , p_out<=temp
 
 PISO = for PI load signal is used for load / shift operation 
-		load = 1 , temp[3:0] <= p_in[3:0] 
+		load = 1 , temp[3:0] <= p_in[3:0]; s_out<=temp[0];
 		load = 0 , temp <= temp >> 1'b1/0;
 
-PIPO = 
+PIPO = for PIPO 
+		load =1, temp[3:0] <= p_in[3:0] 
+		load =0, p_out[3:0] <= temp[3:0]
