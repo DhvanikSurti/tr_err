@@ -391,3 +391,28 @@ jk=01, q=reset
 jk=10, q=set
 jk=11, q=toggle
 Done coding for T_latch , D_latch , jk_latch
+
+
+Shift Register : 
+it is a combination of flipflops mainly D , register is a circuit which can store data but shift register can shift it in serial or parallel manner 
+Features : Data storage, Data transfer, Multiplication ,Division 
+SISO, SIPO, PISO, PIPO
+	Load	Read
+SISO= n 	 n-1
+SIPO= n 	 0
+PISO= 1		 n-1
+PIPO= 1 	 0
+
+PISO circuit is different, it contains 2 and gate connected to 1 or gate , control= shift/load' , shift=0 then load operation , shift=1 then load disable 
+
+Verilog Coding Style : 
+for shifting and loading operation we use enb input which determined wheather to shift or load 
+SISO = 1.right shift 2.left shift 
+		1.shift operator, 2.concatination operator 
+Code Logic = for SISO no shift / load mode is required by the enb
+			temp <= temp >> 1'b1 //uses logical shift operator 
+			 temp[0] <= s_in
+			 s_out <= temp[3]
+SIPO = for SIPO, enb is used for shift / load operation because type is different 
+		shifting logic is same as siso 
+		loading is , p_out<=temp
