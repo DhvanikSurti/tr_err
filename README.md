@@ -405,10 +405,12 @@ PIPO= 1 	 0
 
 PISO circuit is different, it contains 2 and gate connected to 1 or gate , control= shift/load' , shift=0 then load operation , shift=1 then load disable 
 
+Shifting can be made by two ways : 1.shift operator, 2.concatination operator 
+
 Verilog Coding Style : 
 for shifting and loading operation we use enb input which determined wheather to shift or load 
 SISO = 1.right shift 2.left shift 
-		1.shift operator, 2.concatination operator 
+		
 Code Logic = for SISO no shift / load mode is required by the enb
 			temp <= temp >> 1'b1 //uses logical shift operator 
 			 temp[0] <= s_in
@@ -416,3 +418,9 @@ Code Logic = for SISO no shift / load mode is required by the enb
 SIPO = for SIPO, enb is used for shift / load operation because type is different 
 		shifting logic is same as siso 
 		loading is , p_out<=temp
+
+PISO = for PI load signal is used for load / shift operation 
+		load = 1 , temp[3:0] <= p_in[3:0] 
+		load = 0 , temp <= temp >> 1'b1/0;
+
+PIPO = 
