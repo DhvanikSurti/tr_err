@@ -379,3 +379,13 @@ Flip-flop = edge-triggered storage
 
 S-R Latch , Set = Q , Reset = Q' using NOR gate 
 S-R Latch , set 1 = Q =0, using nand gate 
+if else, while, case statements, for
+for example if you making a mux , and using if-else for it ,then you have to assign priority in if,else-if , but if you use case then not prioroty is used 
+
+Mux using case and if statements 
+timescale : timescale tells the Verilog simulator what a # delay means and how precisely time can be represented.
+example : `timescale   1ns / 1ps
+						│      │
+						│      └── time precision(smallest time resolution )
+						└───────── time unit
+
