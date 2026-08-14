@@ -440,3 +440,21 @@ Date 14 aug 2026
 Done coding for Registers , siso,sipo,piso,pipo, and Universal shift register 
 use the logic of above and the enb pin for required logics, 
 used switch cases in the USR , and for the tb of it make sure to gave intermediate times to settle down output, rst the case starting in tb  , rst the temp reg .
+
+Counters : set of flip flop , whose state change in respose to pulses applied at the i/p 
+	n bit counter = n ff , 2^n state, divides i/p freq by 2^n
+	mode(modulus) counter = 2 bit , 4 state , mode-4 counter 
+
+N = number of states , n = number of ff, if for mod 8 , then N=8{0,7} , n = 3{2^3=8} for this one rule 
+N<=2^n
+
+Mostly negetive edge trigger counters are used because , Negative-edge triggering is commonly used in ripple counters because the output transition of one flip-flop can conveniently provide the falling-edge clock for the next flip-flop.
+
+Synchronous counter : same clock to every ff , output of each is independent 
+	design will complex, High speed
+Asynchronous counter : one clock to start , output is gated to second ff's block 
+	low speed, also called ripple counter 
+
+There are also types which are 
+	Full modulus , Variable modulus, Hybrid modulus counters 
+	Cascading ripple counter 
