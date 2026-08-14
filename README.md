@@ -426,3 +426,8 @@ PISO = for PI load signal is used for load / shift operation
 PIPO = for PIPO 
 		load =1, temp[3:0] <= p_in[3:0] 
 		load =0, p_out[3:0] <= temp[3:0]
+
+Date 14 aug 2026
+Done coding for Registers , siso,sipo,piso,pipo, and Universal shift register 
+use the logic of above and the enb pin for required logics, 
+used switch cases in the USR , and for the tb of it make sure to gave intermediate times to settle down output, rst the case starting in tb  , rst the temp reg .
