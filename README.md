@@ -389,3 +389,13 @@ example : `timescale   1ns / 1ps
 						│      └── time precision(smallest time resolution )
 						└───────── time unit
 
+why we use behavioural flow sequential design ?
+
+T= 0 , q=0 
+T=1 , q = ~q 
+
+jk=00, q=hold
+jk=01, q=reset
+jk=10, q=set
+jk=11, q=toggle
+
