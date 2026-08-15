@@ -461,3 +461,31 @@ There are also types which are
 	Binary counter, BCD, Gray code, Ring, Jhonson, Decade 
 
 ALso remeber , when to apply posedge clk in tb , negedge clk to dut , to settle down the tb inputs 
+
+PCIE bus workshop : 
+	serial point to point connected bus 
+	scalable, symmetric(same number of lanes in each direction), dual simplex connection, Gb/s transfer data rate , packate based tranfer 
+
+	Link width and lanes 
+	Performance can be scable on the number of signal lanes implementation
+	Lane & link 
+
+	PCLe gen1,2,3 , increase number of lanes 
+
+	NO common clock , one clock at tx, and embedded in the link and took by the rx.
+
+	Example architecture 
+	CPU --> switch, PCLe endpoint, PCIe bridge to PCI or PCI-X
+
+	Root complex 
+
+	PCIe specification gen3/5 book \
+
+Asynchronous counter : 
+Done code for it , 
+only first input q[0] will got clk , then q[1] and rest got clk via q[0] used another always block 
+Each flip-flop toggles when its clock edge occurs, producing the binary counting sequence.”
+always @(negedge clk) → FF0 toggles
+always @(negedge q[0]) → FF1 toggles
+always @(negedge q[1]) → FF2 toggles
+always @(negedge q[2]) → FF3 toggles
