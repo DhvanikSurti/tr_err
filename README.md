@@ -458,3 +458,6 @@ Asynchronous counter : one clock to start , output is gated to second ff's block
 There are also types which are 
 	Full modulus , Variable modulus, Hybrid modulus counters 
 	Cascading ripple counter 
+	Binary counter, BCD, Gray code, Ring, Jhonson, Decade 
+
+ALso remeber , when to apply posedge clk in tb , negedge clk to dut , to settle down the tb inputs 

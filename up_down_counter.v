@@ -1,4 +1,6 @@
-module counter(
+module counter#(
+    parameter MOD = 5 
+)(
     input clk,load,rst,up,down,
     input [3:0] din,
     output reg [3:0]count
@@ -9,15 +11,24 @@ always@(negedge clk)begin
         count<=4'b0000;
     end
     else if(load)begin
-        count<=din;
+        if (count == MOD-1)
+            count <= 0;
+        else
+            count <= din;
     end
     else if(up)begin
-        count <= count+4'b1;
+       if (count == MOD-1)
+            count <= 0;
+        else
+            count <= count + 1'b1;
     end
     else if(down)begin
-        count <= count-4'b1;
+        if (count == 0)
+            count <= MOD-1;
+        else
+            count <= count - 1'b1;
     end
-    else count <= count+1'b1;
+    else count <= count;
 end
 endmodule
 
@@ -37,7 +48,7 @@ initial begin
 end
 always #5 clk = ~clk;
 initial begin
-    $dumpfile("counter.vcd");
+    $dumpfile("up_down.vcd");
     $dumpvars(0,tb);
     rst =1;
     #10
@@ -52,16 +63,14 @@ initial begin
     
     rst =1;#10;rst=0;
     up =1;
-    for(integer j=0;j<=10;j=j+1)begin
-        din = j;#10;
-    end
+    @(posedge clk);
+    #100;
     up =0;
 
     rst =1;#10;rst=0;
     down =1;
-    for(integer k=0;k<=10;k=k+1)begin
-        din = k;#10;
-    end
+    @(posedge clk);
+    #100;
     down = 0;
     #10;
 
