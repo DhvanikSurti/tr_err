@@ -489,3 +489,9 @@ always @(negedge clk) → FF0 toggles
 always @(negedge q[0]) → FF1 toggles
 always @(negedge q[1]) → FF2 toggles
 always @(negedge q[2]) → FF3 toggles
+
+Multiple mode counter :
+for mode 2,4,8,16
+in the case , just check the codition if it under 2,4,8,15, and then increament the counter ,
+and for reset the counter when new mode is selected , made a prev_mode , which make the counter 0 if the current  mode is not the previous mode , and in the case at last assign prev_mode <= mode.
+Frequency division in the counter :
