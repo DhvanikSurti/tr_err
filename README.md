@@ -481,6 +481,10 @@ PCIE bus workshop :
 
 	PCIe specification gen3/5 book \
 
+	Device Layers 
+		Device A =Device core --> PCIe core Hardware/software -->{transactional , Data link, Physical} --Link --=  device B
+	
+
 Asynchronous counter : 
 Done code for it , 
 only first input q[0] will got clk , then q[1] and rest got clk via q[0] used another always block 
@@ -490,8 +494,56 @@ always @(negedge q[0]) → FF1 toggles
 always @(negedge q[1]) → FF2 toggles
 always @(negedge q[2]) → FF3 toggles
 
+
+Date 16 aug 2026
 Multiple mode counter :
 for mode 2,4,8,16
 in the case , just check the codition if it under 2,4,8,15, and then increament the counter ,
 and for reset the counter when new mode is selected , made a prev_mode , which make the counter 0 if the current  mode is not the previous mode , and in the case at last assign prev_mode <= mode.
-Frequency division in the counter :
+Frequency division in the counter : we uses mode counter to view all the type the frquency division 55
+
+RSIC v series 
+https://www.youtube.com/watch?v=cDrVaS88ukg&list=PLqPfWwayuBvPNORfjuL46aL45-rYnDrM-
+
+UART protocol 
+https://www.youtube.com/watch?v=XaCBetvZjAs&list=PLqPfWwayuBvPNEejEgA82Xq_n4gk8f0Kk
+
+UVM 
+https://www.youtube.com/watch?v=yFlMGNQKs5U&list=PLqPfWwayuBvPb3keSEbSqTmkdowC-OL6M
+
+Dataflow modeling 
+assign <net data type > = <any data type>
+assign , is a continous assignment , where the multiple assign blocks are running concurrantenly 
+
+FSM design : is abstract model of describing sequencial circuit 
+FSM is a logic circuit which can be in one state at a time and it will change state depending on 
+	its current state and the input it receives 
+IT is called machine because it define how circuit is behaves in resposnse to input over time 
+IT is widely used in control logic, embedded systems , protocols 
+Mainly used for 
+	When the system behaviour depends on sequence of input, not just on the current input 
+	TO model control flow in hardware 
+	TO reduce complexity by dividing behavior into states, 
+	To implement system that need memory of past actions (not possible with combinational logic alone)
+	TO synchronize sequencial operations in digital circuits 
+
+Finite : 
+	Finite means that the machine can be only a limited number of state 
+
+FSMs are mainly of two types , based on how outputs are generated 
+	1.Mealy machine : o/p depends on I/P and P/s , Asynchronous o/p , no clock dependent , for change clk && i/p , it is combination of Combinational Circuit(Input state) + sequencial circuit (present state)
+	2.moore machine : o/p depends on P/s only , Synchronous o/p , clock dependent , for change clk || input, Sequencial circuit (present state)
+
+How to represent the fsm 
+State Transition Diagram -> pictorial representation
+State Table -> Tabular Representation
+State Equations -> Algebraic Representation 
+
+Seqence detactor 
+Overlapping : It does not discard the previous bits when it finds the sequence 
+	detect 101, 0010101, it does not discard 5 bits 
+Non -overlapping : It discard the previous bits when it finds the sequence and resume bits 
+	IN sequence detector , when we find sequence state will go to the previsious state , so that countinuosly detecting ongoing bits 
+	detect 101, 0010101, it does discard the 5 bit and continue from 6th bit ,
+	In sequence detector , when we find sequence state will go to IDLE 
+
