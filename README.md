@@ -550,3 +550,9 @@ Non -overlapping : It discard the previous bits when it finds the sequence and r
 
 Date 17 aug 2026 
 FSM coding for sequence detector , used overlapping structure and mealy machine 
+
+8x8 RAM project :::::
+	8 number of position , 8 width of each location 
+	used [63:0]block reg , for storing values [7:0] bits in each line(address)
+	also faces challanges of clock ,and case will executes if read operation is having delay , because case statements will executes upper addresses during the delay 
+	First used switch statements for it , then another things also present in the verilog 
