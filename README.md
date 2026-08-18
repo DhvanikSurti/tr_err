@@ -547,3 +547,6 @@ Non -overlapping : It discard the previous bits when it finds the sequence and r
 	detect 101, 0010101, it does discard the 5 bit and continue from 6th bit ,
 	In sequence detector , when we find sequence state will go to IDLE 
 
+
+Date 17 aug 2026 
+FSM coding for sequence detector , used overlapping structure and mealy machine 
