@@ -556,3 +556,9 @@ FSM coding for sequence detector , used overlapping structure and mealy machine
 	used [63:0]block reg , for storing values [7:0] bits in each line(address)
 	also faces challanges of clock ,and case will executes if read operation is having delay , because case statements will executes upper addresses during the delay 
 	First used switch statements for it , then another things also present in the verilog 
+
+
+Date 19 aug 2026 
+FIFO : 
+	Declared fifo as [7:0] mem[7:0] , measn 8 x8 mem
+	w_ptr , r_ptr for location in mem
