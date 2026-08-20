@@ -562,3 +562,62 @@ Date 19 aug 2026
 FIFO : 
 	Declared fifo as [7:0] mem[7:0] , measn 8 x8 mem
 	w_ptr , r_ptr for location in mem
+
+Date 20 aug 2026
+UART Implementation 
+	tx : parallel Byte -> serial UART bits 
+	rx : serial UART bits -> paralle byte 
+
+	LSB first in Uart bits transfer 
+	Tx = 0(start) | 10000001 (data bits ) | 1(stop)
+
+	module tx 
+		i/p = clk, start ,[7:0]data_in, 
+		o/p = tx, busy 
+
+		BAUD_TICKS , this makes wait 10 clock ticks for every UART bits (problems i faced )
+
+		frame <= {1'b1, data_in, 1'b0};//stop,data,start 
+		busy =1 , bit_index=1, counter =10;
+		so it did not accept another byte that time 
+
+		else if (busy), counter decrement to 0 , when counter = 0 , tx=frame[bit_frame] , increment bit_index, and again set counter = 10 for another bit 
+
+		bit_index tells TX which bit of frame it should output, bit_index
+		bit_index = 0 ,tx=frame[0], start bit 
+		bit_index==9, busy = 0, tx return to idel 
+
+		tx = 1 , when nothing is transmitted, so that the stop condition(1) is fullfilled (Problems i faces )
+
+		MEANS , counter count 10 clock cycle , set 1 bit_index bit , bit_index tells frame to set on every bit , frame executes start data_in stop operation 
+TX:
+
+      IDLE        UART FRAME             IDLE
+       1       0 101... 1                1
+       │       └──────────┘              │
+       │           10 bits               │
+       └─────────────────────────────────┘
+
+
+	module rx 
+		i/p = clk,rx,
+		o/p = [7:0]data_out,done
+
+	module test 
+		#1 clk =~clk , means clk period is 2 simulation time units 
+
+		Actual Hardware baud rate = 
+			Baud Rate = clock frequency / Baud_TICKS 
+			FPGA clock = 10 MHz
+			BAUD_TICKS = 10	
+			baud = 10 MHz / 10 = 10 Mbps
+		.tx(tx_new) , .rx(tx_new), which creates connection in the initialization of the instantiation tx----------rx 
+		
+		by this instantiation , the rx wait for tx to set low , and then start reading data 
+		but rx does not immediately assume it is valid it waits half a bit ,
+		when rx detects edge at the beginning of the start bit , it sample near the middle
+		this happnes in state=0
+
+		state =1 
+		
+
