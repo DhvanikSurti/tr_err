@@ -618,6 +618,19 @@ TX:
 		when rx detects edge at the beginning of the start bit , it sample near the middle
 		this happnes in state=0
 
-		state =1 
-		
+Date 21 jul 2026
 
+		state 1 : after half bit set to counter , it starts with 5 , and then counter ==0 , then bit_index =0, counter = 10, state =2
+		This means start bit is accepted and now wait one full bit perios and sample data bit 0 
+
+		state 2 : receiving data 
+		buffer[bit_index] <= rx, and it contians data
+		at bit_index = 7 , state = 3, for stop bit 
+
+		state 3 : 
+		data_out = buffer 
+		Your RX doesn't actually check whether rx == 1. It simply waits for the stop-bit time ,done =1 ,state = 0
+
+	Tx , Rx does not share common clock, the rx used the baud_tick/2 , to indicate the start bit , and then continue its own clock 
+
+![alt text](image.png)
