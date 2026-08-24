@@ -634,3 +634,60 @@ Date 21 jul 2026
 	Tx , Rx does not share common clock, the rx used the baud_tick/2 , to indicate the start bit , and then continue its own clock 
 
 ![alt text](image.png)
+
+
+Date 23 Aug 2026 
+Risc 32 bit single cycle execution 
+R32I : Risc-V , 32 bit Integer base instruction set architecture(ISA) from the open source RISC-V family 
+32 Register each has 32 bit wide and defines fix set of integer operations, load/store, control transfer instrcutions
+
+Types of instruction in general computer architechture 
+Data Tansfer , Data manipulation , Program Control  
+Data Transfer : Happnes between Regester sets, Memory , I/o 
+				MOV, LOAD, STORE, Exchange, Input, Output, push , pop 
+
+Data Manipulation : 
+
+Program counter : 
+
+Instruction types : 
+	R-type 
+
+Addressing Modes: Defines where the operand values is 
+ Immediate , Direct(Mem addr), Indirect(addr to addr), Register(CPU reg), Register Indirect(reg hold addr), Index/Displacement(effective addr calc by adding offset by the instruction to a base register or index reg), Relative(effective addr calc by offset to the PC )
+
+Addressing Formats : Defines how the address is structured , parsed, or formatted for a system to read
+	Defines Structure of instruction Register operations, Immediate operations, Memory store, Branching
+
+Basic Principal : 
+	One Complete instruction is processed during one clock cycle (fetch,decode,execute,Memory_aceess,write_back) 
+	Fetch : CPU takes address from PC, 
+	Decode : It receives 32 bit binary numbers , processor have to figure out ,
+				What is Instruction is this , 
+				Which registers, what operation , memory access, write registers, change the PC, 
+				Control Unit part 
+	Execute : ALU Part 
+				cpu gets registers, data , address and perform operation inside ALU, 
+				Output is written to address or registers , 
+	
+	PC Increaments : 32 bits instructions = 4 bytes, PC = PC + 4
+					again CPU fetch data from PC latest location 
+	
+	Different Instruction types :
+		For that the R/I/S/B Addressing Formats comes, 
+		
+	PC -- Instruction Mem -- Instruction decode/Control unit -- 1.Register file 2.Immediate -- ALU -- 1.Datamem 2.Register file -- Result 
+
+https://www.youtube.com/watch?v=BVvDHhG0RoA&list=PL5AmAh9QoSK7Fwk9vOJu-3VqBng_HjGFc
+Program Counter : 
+	The PC is basically a register that stores the address of the current instruction.
+	PC has rst =1 then pc_out =0 value , 
+	pcplus4 adder has the pc_out input and increment it by 4 
+	and then send to mux which is connencted with the pc, 
+
+MUX_PC : 
+	mux's input is pcplus4 , pc_target(branching) inputs o/p, 	
+	Select line is come from contrl unit (PCSrc) 
+	Mux decides what value should become the next pc 
+
+			
