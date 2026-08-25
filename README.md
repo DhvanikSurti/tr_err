@@ -691,3 +691,72 @@ MUX_PC :
 	Mux decides what value should become the next pc 
 
 			
+Date 24 aug 2026
+Instruction mem : Stored instruction for executions 
+	it has 64 address, each is 32 bit wide 
+	pc give 0 value in first  then 4 ,8,12, +4 values 
+	in one clock cylce is executes 0th index instruction 
+
+	THis instruction mem does not storing anything values currently , we can assign instruction via testbenches 
+	It just increment the address of mem 
+	For reading the address read_address<={read_address[7:2]}, beacuse 000000'00 last two bits are not used , and address will increamnet by 4 , so to represent the 4 bit value we can only check 7:2 value , if 4 address then 00000100 , then it used as 1 value
+
+Reg file : 
+	Now the decoding part starts , 
+	from here the 32 bit instruction has to be decode , 
+	For R type : 
+			31        25 24    20 19    15 14   12 11     7 6       0
+		┌──────────┬─────────┬─────────┬───────┬────────┬─────────┐
+		│  funct7  │   rs2   │   rs1   │funct3 │   rd   │ opcode  │
+		└──────────┴─────────┴─────────┴───────┴────────┴─────────┘
+			7 bits    5 bits    5 bits   3 bits   5 bits   7 bits
+
+						Total = 32 bits
+	
+	reg file will contain rs1,rs2,rd which is 5 bit reg , because 2^5 = 32 , measn two register for operation and RD is store register ,
+	this rs1,rs2,RD will store registers address in reg file , and gives location to access the register from the regfile
+
+Date 25 aug 2026
+
+	instruction_out_top will contrain 32 bits , they are separated to by the different instruction format like opcode , rd, funct3, rs1,rs2,funct7 which go in control unit and reg file 
+
+	Reg file logic , 
+		reg file of 32x32 , 32 addresses 32 bit each , so it can store 1024 bits
+		at reset all are 0 
+		else (RegWrite) Register[RD] <= Write_data , RegWrite will come from control unit 
+		this RegWrite signal decode by the opcode frame of 32 bit instruction , 
+		then read_data1<=Register[rs1] and similiar for rs2 , which has address of the values stores in the reg , which is send to ALU to computation 
+		ALso the write_data came from ALU operation which is stored in reg ig required 
+
+Extend block : 
+
+Extend block takes the opcode and decode it and make action based on LW, SW, BEQ 
+
+Extend block gets 31:7 bit values
+
+which then it convert to Sign-extend immediate 32 bit values 
+
+And then send 32 bit instruction to the ImmExt which goes in the ALU
+ 
+How it gets the values ? 
+
+	case(opcode): 
+
+	7'b0000011 : ImmExt <= {{20{instruction[31]}},instruction[31:20]};	//LW, takes instruction[31] and make it sign bit according to 31 repeatedly for 20 times and rest 12 bits is acutal data 
+
+		example : instruction[31:20] = 000000001000, The sign bit is 0., 20 zeros + 000000001000, 00000000 00000000 00000000 00001000, ImmExt = 8
+
+		total 12 bit we have feed with rest sign bits 
+
+    	7'b0100011 : ImmExt <= {{20{instruction[31]}},instruction[31:25],instruction[11:7]};//SW, 20times [31] value + 
+
+    		toatla 12 bits we have to fedd woth rest sign bits 
+
+    	7'b1100011 : ImmExt <= {{20{instruction[31]}}, instruction[7], instruction[30:25], instruction[11:8], 1'b0};//
+
+Adder Block of pc + ImmExt : 
+
+	makes sum of pc + ImmExt_top , used for branch instructions 
+
+	ImmExt creates branch offset then add PC , this used for branching instructions 	
+ 
