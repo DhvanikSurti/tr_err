@@ -806,4 +806,4 @@ Date 30 Aug 2026
 Udemy Course , 
 	Verilog Basics , operators, data types, desgin rules 
 	Combinational Design 
-	Sequencial Design , D FF, Counter, RAM, Clock Frequency division , range counter , up/down
+	Sequencial Design , D FF, Counter, RAM, Clock Frequency division , range counter , up/down,,
