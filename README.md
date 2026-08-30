@@ -759,4 +759,31 @@ Adder Block of pc + ImmExt :
 	makes sum of pc + ImmExt_top , used for branch instructions 
 
 	ImmExt creates branch offset then add PC , this used for branching instructions 	
- 
+
+Control Unit : 
+Takes [6:0]instruction and generates RegWrite, MemRead, MemWrite, MemtoReg, ALUSrc, Branch, ALUOp
+case(instruction):
+	R = 0110011, ADD/SUB/AND/OR
+	I = 0000011
+	S = 0100011
+	B = 1100011
+	and sets bitflags accordingly 
+
+ALU_Unit : 
+Actual ALU which have [31:0]A , B , [3:0]control_in as i/p
+zero, [31:0]ALU_Result as output 
+we performs operation based on Control_in signal 
+
+ALU_Control : 
+Uses ALUop, fun7, fun3,control_out
+
+
+Data memory : 
+uses memwrite , memread, [31:0]read_address, [31:0]write_data as a i/p, 
+[31:0]MemData_out as output
+Mux is used which checks ResultSrc =0 ALU result will taken else read_data which is 8 bit stores in Reg file 
+
+
+Date 26 aug 2026 
+Test bech for the RISV 32 bit Single cycle execution 
+
