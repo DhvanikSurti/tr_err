@@ -800,7 +800,7 @@ Udemy Course , ASIC Design Flow Completely
 	CMOS Creation process 
 	Transition Level circuite design 
 	VLSI Design styles(Full custom, Semi custom, FPGA, Gate Array)
-	ASIC Desgin FLOW , 14 steps 
+	ASIC Desgin FLOW , 14 steps,,,
 
 Date 30 Aug 2026 
 Udemy Course , 
