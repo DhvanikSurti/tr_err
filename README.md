@@ -787,3 +787,23 @@ Mux is used which checks ResultSrc =0 ALU result will taken else read_data which
 Date 26 aug 2026 
 Test bech for the RISV 32 bit Single cycle execution 
 
+Date 27 AUG 2026 
+Linked in setup and premium enable & applied via linked in 
+
+Date 28 Aug 2026
+Raksha banadhan , nothing done 
+
+Date 29 Aug 2026 
+Udemy Course , ASIC Design Flow Completely 
+	WHAT HOW WHY VLSI 
+	CMOS Basics , silicon , pn junction , npn, pnp, 
+	CMOS Creation process 
+	Transition Level circuite design 
+	VLSI Design styles(Full custom, Semi custom, FPGA, Gate Array)
+	ASIC Desgin FLOW , 14 steps 
+
+Date 30 Aug 2026 
+Udemy Course , 
+	Verilog Basics , operators, data types, desgin rules 
+	Combinational Design 
+	Sequencial Design , D FF, Counter, RAM, Clock Frequency division , range counter , up/down
