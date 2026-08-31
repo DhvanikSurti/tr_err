@@ -807,3 +807,7 @@ Udemy Course ,
 	Verilog Basics , operators, data types, desgin rules 
 	Combinational Design 
 	Sequencial Design , D FF, Counter, RAM, Clock Frequency division , range counter , up/down,,
+
+Date 31 aug 2026
+Udemy Course , 
+	RAM , single port , dual port 
