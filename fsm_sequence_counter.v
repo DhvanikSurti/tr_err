@@ -10,14 +10,14 @@ parameter s1 = 2'b01;
 parameter s2 = 2'b10 ;
 parameter s3 =  2'b11;
 
-always @(posedge clk)begin
+always @(posedge clk)begin //Sequencial Block 
     if(rst)begin
         q <= 0;
         ps <= idle;
     end
     else ps <= ns;
 end
-always@(*)begin
+always@(*)begin //NextState combinational block
         case(ps)
             idle:begin
                 if(din == 1'b1) begin
@@ -53,7 +53,7 @@ always@(*)begin
         endcase
  end    
 
- always @(posedge clk) begin
+ always @(posedge clk) begin // Present state combinational block /o/p block 
     if(rst)begin
         q <= 0;
         ps <= idle;

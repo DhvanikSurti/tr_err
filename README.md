@@ -810,4 +810,17 @@ Udemy Course ,
 
 Date 31 aug 2026
 Udemy Course , 
-	RAM , single port , dual port 
+	RAM , single port , dual port with code .
+	FSM Design with sequence counter , Mealy : current state & current o/p, Moore: current state
+		In sequence counter , 
+			Non Overlapping : check state , and success found then go to reset 
+							  if wrong i/p came then discard previous bit and check new bit can start the sequence , if not then reset 
+			Overlapping : success found then check from other state bits 
+						  if success found then check for the recent i/p and forward to previous matching 
+	
+	Coding FSM : three blocks , 
+		next_state combinational , sequenctial block , present_state/o/p combinational block 
+	
+	
+
+		 
