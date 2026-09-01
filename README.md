@@ -821,6 +821,9 @@ Udemy Course ,
 	Coding FSM : three blocks , 
 		next_state combinational , sequenctial block , present_state/o/p combinational block 
 	
+01 sep 2026  
+VLSI verify practice 
+	verilog basic quize 
 	
 
 		 
