@@ -870,4 +870,13 @@ EDA playground
 		Can be used for analysis values from console ($monitor,$display)
 		Can be used to finish the simulation($finish)
 
-	always Block design in TB 	 
+	always Block design in TB 
+
+	Phase difference (timing are not align in different clocks):	
+		use delay on another clock starting and then set its duty cycle 
+		always #5 clk = ~clk; // 100MHz
+		always begin
+			#5; clk50 = 1; //50MHZ #10; clk50=0;
+		end
+		always begin 
+			#5; clk25 = 1; //25MHz #15; clk25=0;
