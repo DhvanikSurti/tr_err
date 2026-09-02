@@ -824,6 +824,50 @@ Udemy Course ,
 01 sep 2026  
 VLSI verify practice 
 	verilog basic quize 
-	
 
-		 
+
+
+System Verilog 
+course path 
+1.ide
+2.work around signals , 
+	ports are divided into three types 
+	global, data, control , for data control we use sv to simulate design, for global we use construct which is used in verilog and testbench top to generate stimulus 
+	How to generate various clocks and types
+3.data type and array 
+4.verification architecture ,
+	fundamentals , types of dut , individual components in architecture 
+5.Fundamental of classes and methods 
+6.randomization 
+	constraint methods
+7.IPC between classes 
+8.Interfaces
+	data to design , stimulas from different classes to desgin adn getting back the data 
+	Own Component design which will be in the architecture 
+ 
+
+IDE : 
+Xilinx Vivado Design Suite 
+EDA playground 
+
+2.Signals :
+	global signals are used for reset ,clk
+	Control which control operation of design 
+	Data signal
+	Procedural : initial block and always block 
+	Generation of clock signal 
+
+	Global: clk,rst
+	Data : rdata, wdata 
+	Control : WR, OE, raddr,waddr
+
+	Initial Block : 
+		Can have multiple initial block and they are executing at t = 0 time 
+		First initialize variables using initial block
+		Varibales declares in top file will alwars global signal(clk,rst)
+		intial block can used for random signal generation using delays 
+		Can be used for run system taks at start of simulation ($dumpfiles)
+		Can be used for analysis values from console ($monitor,$display)
+		Can be used to finish the simulation($finish)
+
+	always Block design in TB 	 
