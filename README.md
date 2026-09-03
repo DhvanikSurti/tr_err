@@ -880,3 +880,35 @@ EDA playground
 		end
 		always begin 
 			#5; clk25 = 1; //25MHz #15; clk25=0;
+
+	`timescale (timeunit)/(timeprecision)
+		timeunit / timeprecision , and we can apply floating point clock in 1ns/1ps because we got 3 digit gap , if 1ns/1ns then the floating point will be round of because we don't get any digit space for float 
+
+	Clock generating parameter : 
+		Frequency, Duty cycle , Phase diff
+		duty = 	Ton/Ton+Toff =period
+		period = 1/freq
+		Ton = period * duty cycle
+		Toff = period - Ton
+
+
+Date 03 sep 2026
+System Verilog data types : 
+	Bit, 2-state , 4-state data type 
+	Data type developed for Hardware, Variable in souce code, simulation
+		Hardware type: reg(procedural)(i/p), wire(continuous)(o/p)
+			Logic (reg,wire)
+				Interface 
+		Variable type: fixed , Floating 
+			Floating : real data type (64 bit ), shortreal (32bit)
+			Fixed : 
+				2^n-1 to 2^n-1 -1 range where n=type (8,16,32,64)
+				2 state, 4 state
+					signed= 8bit=byte, 16bit=shortint, 32bit=int, 64bit=longint
+					unsigned= same but only positive and range also doubles because of negative range added to positive range 
+					Declared using signed unsigned 
+					Catch : logic is bydefault is unsigned , when we declare logic signed data[7:0] but if slice and use it then it become unsigned 
+		Simulation : 
+			Fixed point time (time), Float point time (realtime)	
+
+		
