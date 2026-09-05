@@ -911,4 +911,6 @@ System Verilog data types :
 		Simulation : 
 			Fixed point time (time), Float point time (realtime)	
 
-		
+Date 04 sep 2026
+Clock generation 
+Variable Practice with code 
