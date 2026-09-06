@@ -945,7 +945,7 @@ Verification plan :
 		So random value test is used to test the corner case, we also use constraint whihc select the signal value with respect to Functional coverage so we did not have to test all the possible value and time is used less
 
 	Layered Architecture : Layer 1 to 5 
-
+		left to study 
 Class 
 
 
