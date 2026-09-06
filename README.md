@@ -914,3 +914,36 @@ System Verilog data types :
 Date 04 sep 2026
 Clock generation 
 Variable Practice with code 
+
+
+Date 05 Sep 2026
+Verification architecture ,
+	Testbench top, env, agent(generator , driver , monitor), scoreboard, DUT, Layer 1, Layer2 
+Arrays
+	Array initializatio: Unique`{1,2,3}, Repetative `{2{4}} , Default `{default:2} 
+Looping
+	For , Foreach, Repeat , 
+
+Dynamic array : just declare then run time initiaization(new),
+	copy array(same type,size) , compare array(values )
+
+Queue : arr[$], arr.push_front(), arr.push_back(),arr.size, delete, insert, pop 
+
+Dynamic array will adjust size using new() keyword 
+Queue has natural size adjust , we can assign size to it but [$:9]
+
+Verification plan : 
+	specification sheet by which make testcase to simulate signals of specification or DUT
+		Make Testcase, Description ,Feature covered coloumns of signals, which gonna apply to DUT 
+		Test basic funtionality of Design , and make Testcases and check wheather it is working or not , 
+		After test we have GOAL, COVERAGE GROUP , SPECIFICATION USED to verify the testcases 
+	Testing Type : Directed test, Constraint Random Test 
+		DT: apply testcase individually and check pass/fail, Usefull for less number of testcases 
+		CRT : Make Coverage group which contain list of signal that gonna test on DUT, and test this coverage group based on Functional Coverage(Benchmark value 100%) so we get to know the DUT Behaviour on different random test signal values and it should be 100%
+
+		so DT is predominant for test real life values like 0 to 255 , but forgot about undefine and error state 
+		So random value test is used to test the corner case, we also use constraint whihc select the signal value with respect to Functional coverage so we did not have to test all the possible value and time is used less
+
+	Layered Architecture : Layer 1 to 5 
+
+Class 
