@@ -947,5 +947,20 @@ Verification plan :
 	Layered Architecture : Layer 1 to 5 
 		left to study 
 Class 
+	class handlers
+	class objects 
+	class in class 
+	object coping
+	Shallow copy 
+	Deep Copy 
+	class inheritance 
+
+Polymorphism 
+	allows to ACCESS modified method of parent class by child class , we have to declare parent class method as using virtual keyword so that some access it using object it got childs modified method 
+	also we can access secod class's method using first classobject , it only allows to access 
+
+Super Keyword 
+	Allows to access parent class member(data members)
+	
 
 
