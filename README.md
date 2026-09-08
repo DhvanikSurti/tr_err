@@ -993,3 +993,25 @@ import cocotb(coroutne cosimulation test bench) is a verification framework whic
               DUT
           Verilog/VHDL
 
+Date 08 sep 2026
+rand and randc : 
+	rand automatic generate repeate numbers without complete the range or new values, randc generates does not repeate the number unit the range or new numbers are finished onced 
+	We add range in rand, for call the range we have to call it using randomize() with class handler and the rand is declare inside the class 
+
+assert : I expext this candition to be true check it for me 
+	assertion are heavily used in verification because you are continuosly checking that something that should be true is actually true 
+	Checking what normal operation should do , it is used to verify that something is true 
+	assert(g.randomize())
+	elsen begin $display("fail");end
+	In assert it only check that condition is true or not , if else can be used , and it is continuously checking that condition , if inbetween happned then also assert execute 
+
+Constraint : 
+	COntrol what values the randomization system is allowed to generate 
+	constraint constrainnt_name {
+				a<9; b>5;
+				c inside {[15:12], [10:8],[1:0]};
+				d inside {[15:13], [10:4]}; }
+	this can also declared outside of class 
+	declare extern contrint_name ; inside the class (we can also declare function also)
+	outside of we can declare the constraint as it is 
+	
