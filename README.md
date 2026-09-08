@@ -963,4 +963,33 @@ Super Keyword
 	Allows to access parent class member(data members)
 	
 
+Date 07 sep 2026
+python for verification / automation 
+scripting which executes testcases or test data
+
+import cocotb(coroutne cosimulation test bench) is a verification framework which is built for python
+	access RTL, drive RTL, wait for simulation events, create clocks, monitor DUT, creates tests
+
+       ┌─────────────────┐
+       │  Cocotb Tests   │
+       │ coroutine       │
+       │ coroutine       │
+       │ coroutine       │
+       └────────┬────────┘
+         Cocotb Scheduler
+                ▼
+        ┌───────────────┐
+        │      GPI      │
+        │ Generic       │
+        │ Programming   │
+        │ Interface     │
+        └───────┬───────┘
+        ┌───────┴────────┐
+       VPI              VHPI/FLI
+        └───────┬────────┘
+                ▼
+        Simulator Scheduler
+                ▼
+              DUT
+          Verilog/VHDL
 
