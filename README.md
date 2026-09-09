@@ -1014,4 +1014,8 @@ Constraint :
 	this can also declared outside of class 
 	declare extern contrint_name ; inside the class (we can also declare function also)
 	outside of we can declare the constraint as it is 
-	
+
+pre_randomize() post_randomize()
+randc bucket 
+Weighted distribution 
+
