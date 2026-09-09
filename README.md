@@ -1023,3 +1023,8 @@ complexity to constraint
 	Implication , Equivalance, if else 
 
 On off constraint , uses contraint_mode(0/1) 
+
+IPC , 
+	Event : @(), wait()
+	Semaphore : get , put, 
+	Mailbox : get, put, tryget, tryput 
