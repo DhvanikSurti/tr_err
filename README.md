@@ -1019,3 +1019,7 @@ pre_randomize() post_randomize()
 randc bucket 
 Weighted distribution 
 
+complexity to constraint 
+	Implication , Equivalance, if else 
+
+On off constraint , uses contraint_mode(0/1) 
