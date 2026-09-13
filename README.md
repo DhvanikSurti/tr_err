@@ -1037,3 +1037,8 @@ semaphore : make the data access restricted
 	s.get(1) .... s.put(1)// one key is used 
 mailbox : How to send same , single data accorss different class, task, functions, modules like gen, dri, monitor, scroreboard, 
 	we have to make constructor with name mailbox mbx = new()
+
+Date 12 sep 2026
+interface 
+modport 
+system verilog quiz practice 
