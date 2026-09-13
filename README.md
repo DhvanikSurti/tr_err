@@ -1042,3 +1042,12 @@ Date 12 sep 2026
 interface 
 modport 
 system verilog quiz practice 
+
+Date 13 sep 2026 
+all gates using nand gate 
+even odd parity generator 
+
+Half adder , also for printing statements use separate initial block which will execute with same time and capture the all the input / output changes 
+
+full adder
+full adder using two half adder
