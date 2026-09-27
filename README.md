@@ -1047,7 +1047,14 @@ Date 13 sep 2026
 all gates using nand gate 
 even odd parity generator 
 
-Half adder , also for printing statements use separate initial block which will execute with same time and capture the all the input / output changes 
+Half adder , also for printing statements use separate initial block which will execute with same time and capture the all the input / output changes
+
+Date 14, 15 ,16 ,17, 18 ,19, 20
+Heavy rain, waterlogging, No Electricity, 
+Ganpati Utsav
+Laptop is not available because it is not working and send it for repair,
+
+
 
 full adder
 full adder using two half adder
