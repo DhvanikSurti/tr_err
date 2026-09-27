@@ -1060,6 +1060,13 @@ Laptop is not available because it is not working and send it for repair,
 Date 22 sep 2026 
 Linked-in job search 
 
+Date 23 Sep 2026 
+SV assertion starting with YT playlist and vlsi verify page 
+	Black box , white box testing ,
+	Immediate assertio in SV 
+	Property in assetion , assert property 
+		which define rule for assertion to work on , posedge , 
+		when it applies + what must follow
 
 
 
