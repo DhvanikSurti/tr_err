@@ -1052,6 +1052,9 @@ Half adder , also for printing statements use separate initial block which will 
 Date 14, 15 ,16 ,17, 18 ,19, 20
 Heavy rain, waterlogging, No Electricity, 
 Ganpati Utsav
+
+Date 21 sep 2026
+Linked-in job search 
 Laptop is not available because it is not working and send it for repair,
 
 
