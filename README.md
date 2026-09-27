@@ -1057,6 +1057,10 @@ Date 21 sep 2026
 Linked-in job search 
 Laptop is not available because it is not working and send it for repair,
 
+Date 22 sep 2026 
+Linked-in job search 
+
+
 
 
 full adder
