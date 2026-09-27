@@ -1078,3 +1078,28 @@ Sequence in sv
 	first use sequence for temporal operation which define sequence(way) operation, then 
 	Use property which can contail multiple sequnces which bound in condition rule , then
 	Use assert property which defines assertion operation of this all three parts 
+
+Date 25 sep 2026 
+System function 
+$rose(expression) , which check low to high signal movement and return true 
+
+$fell , 1 to 0 
+$stable , check if a singal remains unchanged from the previous time step
+$chnaged , 
+
+Timing window 
+	@(posedge clk) a|-> (##2 b)
+	@(posedge clk) a|-> [2:4]b;
+	@(posedge clk) a|-> ##[1:$]b , $|->b , infinite loop 
+
+Repetition Operators , b should be high 2 cycles 
+	@(posedge clk) $rose(a) |-> ##b[*3]##c, means if a is high , then after on delay b has be high 3 cycle, then after one delay c have to high 
+
+Consucutive repetition , 
+	[*0:3]b , No gaps allowed. [*N] means the signal must be high on every single clock cycle in that window — if even one cycle drops low, the match fails.
+
+Non-consecutive , 
+	[=N] — Non-consecutive repetition, Signal must be true at least N times, Sequence ends after the Nth true, but the match can extend further, Gaps allowed
+	[->N] — Goto repetition, Signal must be true exactly N times, Sequence ends on the Nth true, Gaps between occurrences are allowed
+
+
