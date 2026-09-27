@@ -1068,7 +1068,13 @@ SV assertion starting with YT playlist and vlsi verify page
 		which define rule for assertion to work on , posedge , 
 		when it applies + what must follow
 
-
-
-full adder
-full adder using two half adder
+Date 24 Sep 2026 
+Temporal operators 
+	Verb of time , they tell the tool when and how long to look at signals across clock cycles
+	##, |->(overlapping), |=>(Non-overlapping), [* n] (repetation)
+Sequence in sv 
+	used to define temporal relationship between signals over multiple clock cycle , 
+	sequence specify conditions that must hold true across multiple simulation time steps 
+	first use sequence for temporal operation which define sequence(way) operation, then 
+	Use property which can contail multiple sequnces which bound in condition rule , then
+	Use assert property which defines assertion operation of this all three parts 
