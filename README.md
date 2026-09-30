@@ -1113,7 +1113,55 @@ How many code excercide,
 w.r.t., block , expression, FSM, Signal toggling
 Automatically generated, abd check by the simulation tool, it compile all the line, branches, condition, toggle, states, 
 
+Date 27 sep 2026 
+Functional Coverage L 
+Desgin functionality , or feature metrics.
+User define metric that tells about functionality , desgin specification 
+1.data Intended , data range, values, combinations of dat , data pattern 
+2.control intended, behaviour state, sequence , protocol handshake, control phase 
 
+covergroup cg_name @(posedge clk); // Sampled implicitly on every positive clock edge
+  cp_label : coverpoint variable_name;
+endgroup
+cg_name cg_inst = new(); 
+
+covergroup cg_bins;
+  cp_b : coverpoint b {
+    // Individual scalar bins
+    bins bin_zero = {0};
+    
+    //Fixed range bin
+	bins bin_low  = {[1:10]};
+    
+    // Array of separate bins: creates a bin for every single value in the range
+    bins bin_each[] = {[11:15]}; 
+    
+    // Transition bins: tracks a consecutive sequence of values (0 then 1 then 2)
+    bins trans_seq = (0 => 1 => 2);
+    
+    // Ignore bins: filters out specified values from coverage statistics
+    ignore_bins ignored_vals = {32, 64};
+    
+    // Illegal bins: generates a runtime error if these values occur
+    illegal_bins bad_vals = {[100:$]}; 
+  }
+endgroup
+
+Coveragegroupe : user degine construct that encapsulate coverage model spec , it can be instantiated ,ultiple time can be defined in program, class, module interface 
+contains , Coverage point. cross coverage ,clocking event that synchronizes 
+
+Coverpoint : 
+In short, a coverpoint in SystemVerilog is a tool used to track whether specific values or ranges of a variable have occurred during simulation to measure functional coverage.
+It splits the values into bins (categories) to verify that your testbench actually tested all necessary corner cases and design states.
+• What it does: It watches a single integral variable or expression every time the covergroup is sampled and records whether specific values or ranges are hit.
+• Bins: Values tracked by a coverpoint are grouped into bins. SystemVerilog creates automatic bins for each legal value by default, or you can write explicit custom bins for specific ranges or states.
+• Role in Verification: It helps verify if your test stimulus actually exercised the intended functional states or corner cases of the design.
+
+Bins : bins are the specific buckets or categories that count how many times a particular value (or range of values) occurs.
+when a sample value bvelong to a bin the hit count of that bin increase , used to check which values hit and which are missed 
+• Automatic Bins: If you don't define bins, SystemVerilog automatically creates a bin for every possible value of the variable.
+• Explicit Bins: You can define your own bins to group values together or ignore values you don't care about.
+	IMportant individual values, boundary values , groups of related va;ues, small. 
 
 
 
