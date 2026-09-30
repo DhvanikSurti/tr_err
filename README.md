@@ -1102,4 +1102,21 @@ Non-consecutive ,
 	[=N] — Non-consecutive repetition, Signal must be true at least N times, Sequence ends after the Nth true, but the match can extend further, Gaps allowed
 	[->N] — Goto repetition, Signal must be true exactly N times, Sequence ends on the Nth true, Gaps between occurrences are allowed
 
+Date 26 Sep 2026 
+Repetition Operators 
+[*3]
+
+goto operators, [->n], [->3] 
+
+Code COverage , 
+How many code excercide, 
+w.r.t., block , expression, FSM, Signal toggling
+Automatically generated, abd check by the simulation tool, it compile all the line, branches, condition, toggle, states, 
+
+
+
+
+
+
+
 
