@@ -1163,8 +1163,19 @@ when a sample value bvelong to a bin the hit count of that bin increase , used t
 • Explicit Bins: You can define your own bins to group values together or ignore values you don't care about.
 	IMportant individual values, boundary values , groups of related va;ues, small. 
 
+Transition Bins, 
+Succesive sampling events , order of the values 
+Explicit say 2&5 were sampled , but transition tells wheather 5 followed by 2 in the required order 
+Singlw value transition , sequence , set of transition , consecutive repetition, range of repetition , goto 
+Evaluates only when the covergroup is sampled " => " , 2=>5
 
-
-
+F.C is usually collected silently by the simulator and stored in its coverage database 
+	1.simulator coverage report 
+	2.Query coverage from SV , $display("coverage =%0.2f%%"cov_get_coverage()); 
+	Method								Scope
+	cg_inst.get_coverage()				Overall coverage for the type (all instances)
+	cg_inst.get_inst_coverage()			Coverage for this specific instance
+	cg_inst.cp1.get_coverage()			Coverage for a single coverpoint
+	cg_inst.cp1_X_cp2.get_coverage()	Coverage for a specific cross
 
 
