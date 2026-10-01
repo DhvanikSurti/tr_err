@@ -1205,3 +1205,10 @@ User Signal ,
 Protection using Parity 
 Configuration of interface protection (Check_type) 
 Rules for APB 
+
+Date 1 oct 2026
+AHB Protocol in AMBA , 
+Theory brief 
+Manager , Interface, Subordinate architecture 
+Operation 
+Signal type , : Global, Manager, Subordinate,
