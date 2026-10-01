@@ -1163,6 +1163,7 @@ when a sample value bvelong to a bin the hit count of that bin increase , used t
 • Explicit Bins: You can define your own bins to group values together or ignore values you don't care about.
 	IMportant individual values, boundary values , groups of related va;ues, small. 
 
+Date 27 sep 2026 
 Transition Bins, 
 Succesive sampling events , order of the values 
 Explicit say 2&5 were sampled , but transition tells wheather 5 followed by 2 in the required order 
@@ -1178,4 +1179,29 @@ F.C is usually collected silently by the simulator and stored in its coverage da
 	cg_inst.cp1.get_coverage()			Coverage for a single coverpoint
 	cg_inst.cp1_X_cp2.get_coverage()	Coverage for a specific cross
 
+Date 28 sep 2026 
+cross coverage 
+coverage constructs
+binsof()
+Coverage methods 
 
+AMBA 
+AHP4/5
+basic theory , FSM structure of APB , system task and function task 
+Coverage option in fc , 
+	option , individual reporting to each instance , option.per_instant =1 
+
+Date 29 sep 2026 
+AMBA Spec 
+Signal description : 
+Transfer 
+Error response 
+Operating states
+Realm management Extension , RME , 
+
+Date 30 sep 2026
+Wake up signal, 
+User Signal , 
+Protection using Parity 
+Configuration of interface protection (Check_type) 
+Rules for APB 
