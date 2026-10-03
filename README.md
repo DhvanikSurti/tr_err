@@ -1212,3 +1212,22 @@ Theory brief
 Manager , Interface, Subordinate architecture 
 Operation 
 Signal type , : Global, Manager, Subordinate,
+
+Date 02 sep 2026
+Signal types Multiplexor , 
+Transfer in AHB ,
+	Address, data in two phase 
+	Transfer type , 
+		HTRANS[1:0] 2 bit , 
+		00 - idel, 01-busy, 10-NonSeq, 11-SeQ
+Locked Transfer , 
+	HMASTLOCK , lock for master and do not enter the other masters , 
+	Locking: HMASTLOCK=0, HREADY=1, HSEL=1, 
+	Unlock : HMASTLOACK=1, HREADY=1, 
+	After a lock transfer , it is recommended that the manager insert IDEL transfer 
+
+Transfer Size [2:0] ,3 bit combination 
+must be equal to or less that width of data bus
+000-8 bits, 001-16bits ... 111-1024bits 
+
+Write Strobes , HWSTRB 
