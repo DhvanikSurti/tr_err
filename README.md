@@ -1231,3 +1231,56 @@ must be equal to or less that width of data bus
 000-8 bits, 001-16bits ... 111-1024bits 
 
 Write Strobes , HWSTRB 
+
+Date 03 Sep 2026 
+Interoperability , describes how to connect interfaces based on their Write_Strobes property:
+The key cell to note is Manager: True / Subordinate: False, which has two requirements:
+
+The Manager must not generate sparse writes (i.e., it always writes all bytes in every transfer).
+The HWSTRB input on the Subordinate must be tied HIGH.
+Both conditions together make the connection safe: since the Manager always writes full-width data, the Subordinate (which ignores HWSTRB) correctly treats every byte as valid.
+
+Burst Operation, HBURST[2:0]
+000-single, 001-INCR, 010-WRAP4, 011-INCR4, 100-WRAP8 ...111-INCR16
+4,8,16 beats , 
+1.Increamenting 2.wrapping burst 
+
+Waited Transfer , HREADYOUT , which is used but the subordinates to indicate wait state if they required more time to provide or sample the data 
+
+Protection tool , HPROT[3:0] for AHB2,3 older version , control signal , 
+HPROT[6:0] for AHB5 newer version , 
+HPROT[0] Data/Inst, When asserted, this bit indicates the transfer is a data access.When deasserted this bit indicates the transfer is an instruction fetch.
+HPROT[1] Privileged, When asserted, this bit indicates the transfer is a privileged access.When deasserted this bit indicates the transfer is an unprivileged access.
+HPROT[2] Bufferable If both of HPROT[4:3] are deasserted, then when this bit is:
+• Deasserted, the write response must be given from the final destination.
+• Asserted, the write response can be given from an intermediate point, but 
+the write transfer is required to be made visible at the final destination in a 
+timely manner.
+
+HPROT[3] Modifiable When asserted, the characteristics of the transfer can be modified.
+When deasserted the characteristics of the transfer must not be modified.
+
+HPROT[4] Lookup
+When asserted, the transfer must be looked up in a cache.
+When deasserted, the transfer does not need to be looked up in a cache and the 
+transfer must propagate to the final destination.
+
+HPROT[5] Allocate
+When asserted, for performance reasons, it is recommended that this transfer is 
+allocated in the cache.
+When deasserted, for performance reasons, it is recommended that this transfer is 
+not allocated in the cache.
+
+HPROT[6] Shareable
+When asserted, indicates that this transfer is to a region of memory that is shared 
+with other Managers in the system. A response for the transfer must not be 
+provided until the transfer is visible to other Managers.
+When deasserted, indicates that this transfer is Non-shareable and the region of 
+memory is not shared with other Managers in the system. A response for the 
+transfer does not guarantee the transfer is visible to other Managers. 
+This bit is ignored and must be zero for transfers to Device memory.
+
+Device Memory Requirements , 
+Normal Memory Requirements , 
+HAHB[3:0] to HAHB[6:0] compatible 
+Secure Transfer , HNONSEC , high means non secure , low means secure 
