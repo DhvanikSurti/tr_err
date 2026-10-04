@@ -1284,3 +1284,20 @@ Device Memory Requirements ,
 Normal Memory Requirements , 
 HAHB[3:0] to HAHB[6:0] compatible 
 Secure Transfer , HNONSEC , high means non secure , low means secure 
+
+Interconnect , 	
+	Master -> subordinate, single master needs decoder , multiplexor , 
+	Multiple masters need interconnect which have arbitation & routing of signal from different Master to appropriate subordinate , 
+	Single layer , Multi layer , interconnect 
+
+Address decoding , 
+	selects HSELx for each subordinate , works when HREADY=1 , 
+	minimum address space for subordinate is 1kb , 1kb boundary aligenment start address must be multiple of 1024, burst never crosses 1kb boundary it must wrap/stop before 1kb block. 
+
+Default subordinate, in case of ,
+	If a system design does not contain a completely filled memory map, then an additional default Subordinate must be implemented to provide a response when any of the nonexistent address locations are accessed.
+
+Multiple Subordinate select , 
+Single Master , single Decoder which decodes address for different HSELx ,also , single subordinate (pheripheral UART, I2c,GPIO) can work in different different purposes via HSELx 
+This permits a single Subordinate interface to provide multiple logical interfaces, each with a different location in the system address map. The minimum address space that can be allocated to a logical interface is 1KB. This approach removes the need for a Subordinate to support the address decode to differentiate between the logical interfaces. 
+
