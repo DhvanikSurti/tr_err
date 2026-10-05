@@ -1301,3 +1301,13 @@ Multiple Subordinate select ,
 Single Master , single Decoder which decodes address for different HSELx ,also , single subordinate (pheripheral UART, I2c,GPIO) can work in different different purposes via HSELx 
 This permits a single Subordinate interface to provide multiple logical interfaces, each with a different location in the system address map. The minimum address space that can be allocated to a logical interface is 1KB. This approach removes the need for a Subordinate to support the address decode to differentiate between the logical interfaces. 
 
+
+Date 05 date 2026
+Data bus , HWDATA, HRDATA, Endianness, LE,BE8,BE32 
+Equations for data bus bits are used 
+Little Endian Byte_Lane = Address –(INT(Address / Data_bus_Bytes)) × Data_Bus_Bytes
+Byte-invariant big-endian Byte_Lane = Address –(INT(Address / Data_bus_Bytes)) × Data_Bus_Bytes
+Word-invariant big-endian 
+Address_Offset = Address –(INT(Address /Data_Bus_Bytes)) × Data_bus_Bytes
+Word_Offset = (INT(Address_Offset / 4)) × 4
+Byte_Offset = Address_Offset – Word_Offset
