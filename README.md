@@ -1322,3 +1322,10 @@ Data bus width
 	narrow subordinate on wide bus (mux on inpute HWDATA),manager side 
 	wide subordinate on narrow bus (mux on output HRDATA ), subordinate side 
 	manager on wide bus 
+
+Date 08 oct 2026
+clk & reset signal in AHB
+Signal Validity 
+atomicity , transfer completes full or not at all 
+	single_copy atomicity size 
+	Multi_copy atomicity proeprty 
