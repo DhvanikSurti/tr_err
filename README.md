@@ -1311,3 +1311,14 @@ Word-invariant big-endian
 Address_Offset = Address –(INT(Address /Data_Bus_Bytes)) × Data_bus_Bytes
 Word_Offset = (INT(Address_Offset / 4)) × 4
 Byte_Offset = Address_Offset – Word_Offset
+
+
+Date 07 oct 2026
+Formula for the byte_lane , bus bits, word invariant 
+
+BYte invariant (mixed endianess)
+
+Data bus width 
+	narrow subordinate on wide bus (mux on inpute HWDATA),manager side 
+	wide subordinate on narrow bus (mux on output HRDATA ), subordinate side 
+	manager on wide bus 
